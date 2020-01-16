@@ -19,5 +19,9 @@ public class VideoService {
         return videoRepository.findAll();
     }
 
+    public Video getVideoById(Long id) {
+        return videoRepository.getOne(id);
+    }
+
 
 }

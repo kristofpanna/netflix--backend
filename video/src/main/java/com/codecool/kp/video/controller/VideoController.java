@@ -31,6 +31,7 @@ public class VideoController {
     @GetMapping("/{id}")
     @ApiOperation("Get video details with recommendations by id")
     public VideoWithRecommendations getVideoDetails(@PathVariable Long id) {
-        return new VideoWithRecommendations(new Video(), new ArrayList<>()); // TODO
+        final Video video = videoService.getVideoById(id);
+        return new VideoWithRecommendations(video, new ArrayList<>()); // TODO
     }
 }
