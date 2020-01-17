@@ -14,14 +14,14 @@ public class RecommController {
 
     @GetMapping("/")
     public List<Recommendation> getAllRecommendationsForVideo(@RequestParam("id") Long videoId) {
-        log.info("/recommendation/ endpoint was called with  " + videoId + " request param");
+        log.info("== /recommendation/ endpoint was called with  " + videoId + " request param");
         return new ArrayList<>(); //TODO
     }
 
 
     @GetMapping("/{id}")
     public Recommendation getRecommendation(@PathVariable Long id) {
-        log.info("/recommendation/{id} endpoint was called with " + id + " path variable");
+        log.info("== /recommendation/{id} endpoint was called with " + id + " path variable");
         return new Recommendation(); // TODO
     }
 

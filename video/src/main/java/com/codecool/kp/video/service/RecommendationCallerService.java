@@ -25,7 +25,7 @@ public class RecommendationCallerService {
     public List<Recommendation> getRecommendations(Long id) {
         // GET request -> cast response to array of recommendations     // TODO (format string nicer)
         final String url = recommBaseUrl + "/?id={id}";
-        log.info("calling restTemplate.getForEntity(url, Recommendation[].class, id) with url: " + url + "   id: " + id);
+        log.info("== calling restTemplate.getForEntity(url, Recommendation[].class, id) with url: " + url + "   id: " + id);
         final Recommendation[] recomms = restTemplate.getForEntity(url, Recommendation[].class, id).getBody();
         return Arrays.asList(recomms);
     }
