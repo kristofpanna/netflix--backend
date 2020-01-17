@@ -6,14 +6,20 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Slf4j
 public class RecommendationService {
 
     @Autowired
-    RecommendationRepository recommendationRepository;
+    RecommendationRepository recommRepository;
 
     public void saveRecommendation(Recommendation recommendation) {
-        recommendationRepository.save(recommendation);
+        recommRepository.save(recommendation);
+    }
+
+    public List<Recommendation> getRecommendationsForVideo(Long videoId) {
+        return recommRepository.findAllByVideoId(videoId);
     }
 }
