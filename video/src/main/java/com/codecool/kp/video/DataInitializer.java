@@ -38,13 +38,13 @@ public class DataInitializer implements CommandLineRunner {
                 .comment("Best song ever! <3")
                 .videoId(vieo2Id)
                 .build();
-        recommCaller.addRecomm(recommendation21);
+        recommCaller.saveRecomm(recommendation21);
         Recommendation recommendation22 = Recommendation.builder()
                 .rating(5)
                 .comment("Great video.")
                 .videoId(vieo2Id)
                 .build();
-        recommCaller.addRecomm(recommendation22);
+        recommCaller.saveRecomm(recommendation22);
 
         Video video3 = Video.builder()
                 .name("Quck Sort - legényes")

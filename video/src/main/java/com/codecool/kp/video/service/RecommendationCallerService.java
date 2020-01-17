@@ -32,8 +32,15 @@ public class RecommendationCallerService {
         return Arrays.asList(recomms);
     }
 
-    public void addRecomm(Recommendation newRecomm) {
+    public void saveRecomm(Recommendation newRecomm) {
         HttpEntity<Recommendation> request = new HttpEntity<>(newRecomm);
         URI location = restTemplate.postForLocation(recommBaseUrl, request);
+    }
+
+
+    public void saveRecomms(List<Recommendation> recommendations) {
+        for (Recommendation recommendation : recommendations) {
+            saveRecomm(recommendation);
+        }
     }
 }

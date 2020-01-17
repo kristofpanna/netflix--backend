@@ -1,0 +1,27 @@
+{
+  "recommendations": [
+    {
+      "comment": "Baby Yoda for President!!!",
+      "id": 1,
+      "rating": 3,
+      "videoId": 1
+    },
+    {
+      "comment": "Baby Yoda for President!!! Again!",
+      "id": 2,
+      "rating": 4,
+      "videoId": 1
+    },
+    {
+      "comment": "Nice music for coding",
+      "id": 3,
+      "rating": 2,
+      "videoId": 1
+    }
+  ],
+  "video": {
+    "id": 1,
+    "name": "Mando",
+    "url": "https://www.youtube.com/watch?v=V7yqW64Dx7c"
+  }
+}

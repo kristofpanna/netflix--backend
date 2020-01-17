@@ -6,7 +6,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -24,7 +23,7 @@ public class RecommController {
     }
 
     @PostMapping("/")
-    public void addRecommendation(@RequestBody Recommendation recommendation) {
+    public void saveRecommendation(@RequestBody Recommendation recommendation) {
         log.info("== /recommendation/ endpoint was called with POST request");
         log.info("== recommendation to save: " + recommendation);
         recommendationService.saveRecommendation(recommendation);
