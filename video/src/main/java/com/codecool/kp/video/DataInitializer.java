@@ -1,7 +1,9 @@
 package com.codecool.kp.video;
 
+import com.codecool.kp.video.controller.dto.Recommendation;
 import com.codecool.kp.video.entity.Video;
 import com.codecool.kp.video.repository.VideoRepository;
+import com.codecool.kp.video.service.RecommendationCallerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -13,6 +15,9 @@ public class DataInitializer implements CommandLineRunner {
 
     @Autowired
     private VideoRepository videoRepository;
+
+    @Autowired
+    private RecommendationCallerService recommCaller;
 
     @Override
     public void run(String... args) throws Exception {
@@ -27,6 +32,19 @@ public class DataInitializer implements CommandLineRunner {
                 .url("https://www.youtube.com/watch?v=uKthisLCFD4")
                 .build();
         videoRepository.save(video2);
+        final Long vieo2Id = videoRepository.getByName("One Step Forward by Kitti").getId();
+        Recommendation recommendation21 = Recommendation.builder()
+                .rating(5)
+                .comment("Best song ever! <3")
+                .videoId(vieo2Id)
+                .build();
+        recommCaller.addRecomm(recommendation21);
+        Recommendation recommendation22 = Recommendation.builder()
+                .rating(5)
+                .comment("Great video.")
+                .videoId(vieo2Id)
+                .build();
+        recommCaller.addRecomm(recommendation22);
 
         Video video3 = Video.builder()
                 .name("Quck Sort - legényes")

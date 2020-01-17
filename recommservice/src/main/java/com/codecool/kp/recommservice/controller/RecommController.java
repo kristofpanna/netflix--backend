@@ -25,5 +25,10 @@ public class RecommController {
         return new Recommendation(); // TODO
     }
 
+    @PostMapping("/") // TODO return value?
+    public void addRecommendation(@RequestBody Recommendation recommendation) {
+        log.info("== /recommendation/ endpoint was called with POST request");
+        log.info("== recommendation to save: " + recommendation);
+    }
 
 }
