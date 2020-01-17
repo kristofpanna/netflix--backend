@@ -31,6 +31,7 @@ public class VideoController {
     @GetMapping("/")
     @ApiOperation("List all videos")
     public List<Video> listAllVideos() {
+        log.info("/video/ endpoint was called");
         return videoService.getVideos();
     }
 
@@ -38,6 +39,7 @@ public class VideoController {
     @GetMapping("/{id}")
     @ApiOperation("Get video details with recommendations by id")
     public VideoWithRecommendations getVideoDetails(@PathVariable Long id) {
+        log.info("/video/{id} endpoint was called with " + id + " path variable");
         final Video video = videoService.getVideoById(id);
         final List<Recommendation> recommendations = recommendationCallerService.getRecommendations(id);
         return new VideoWithRecommendations(video, recommendations);
