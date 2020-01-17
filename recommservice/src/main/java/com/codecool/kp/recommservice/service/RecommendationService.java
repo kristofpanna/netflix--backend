@@ -20,6 +20,6 @@ public class RecommendationService {
     }
 
     public List<Recommendation> getRecommendationsForVideo(Long videoId) {
-        return recommRepository.findAllByVideoId(videoId);
+        return recommRepository.findAllByVideoIdOrderById(videoId);
     }
 }
