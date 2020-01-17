@@ -20,17 +20,10 @@ public class RecommController {
     @GetMapping("/")
     public List<Recommendation> getAllRecommendationsForVideo(@RequestParam("id") Long videoId) {
         log.info("== /recommendation/ endpoint was called with  " + videoId + " request param");
-        return new ArrayList<>(); //TODO
+        return recommendationService.getRecommendationsForVideo(videoId);
     }
 
-
-    @GetMapping("/{id}")
-    public Recommendation getRecommendation(@PathVariable Long id) {
-        log.info("== /recommendation/{id} endpoint was called with " + id + " path variable");
-        return new Recommendation(); // TODO
-    }
-
-    @PostMapping("/") // TODO return value?
+    @PostMapping("/")
     public void addRecommendation(@RequestBody Recommendation recommendation) {
         log.info("== /recommendation/ endpoint was called with POST request");
         log.info("== recommendation to save: " + recommendation);
