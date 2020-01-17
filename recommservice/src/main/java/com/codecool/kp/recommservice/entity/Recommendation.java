@@ -1,4 +1,4 @@
-package com.codecool.kp.recommservice.model;
+package com.codecool.kp.recommservice.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,7 +19,7 @@ public class Recommendation {
     @GeneratedValue
     private Long id;
 
-    private int rating; // 1-5
+    private Integer rating; // 1-5
 
     private String comment;
 
