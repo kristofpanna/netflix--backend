@@ -33,12 +33,20 @@ public class VideoController {
 
 
     @GetMapping("/{id}")
-    @ApiOperation("Get video details with recommendations by id")
+    @ApiOperation("Get a video with recommendations by id")
     public VideoWithRecommendations getVideoDetails(@PathVariable Long id) {
         log.info("== /video/{id} endpoint was called with " + id + " path variable");
         final Video video = videoService.getVideoById(id);
         final List<Recommendation> recommendations = recommendationCallerService.getRecommendations(id);
         return new VideoWithRecommendations(video, recommendations);
+    }
+
+
+    @PostMapping("/")
+    @ApiOperation("Update or create a video and its recommendations")
+    public void saveVideoWithRecomms(@RequestBody VideoWithRecommendations videoWithRecomms) {
+        videoService.saveVideo(videoWithRecomms.getVideo());
+        recommendationCallerService.saveRecomms(videoWithRecomms.getRecommendations());
     }
 
 }
