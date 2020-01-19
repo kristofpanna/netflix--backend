@@ -25,14 +25,31 @@ public class DataInitializer implements CommandLineRunner {
                 .name("The Mandalorian soundtrack")
                 .url("https://www.youtube.com/embed/V7yqW64Dx7c")
                 .build();
-        videoRepository.save(video1);
+        final Long vieo1Id = videoRepository.save(video1).getId();
+        Recommendation recommendation11 = Recommendation.builder()
+                .rating(4)
+                .comment("Baby Yoda for President!")
+                .videoId(vieo1Id)
+                .build();
+        recommCaller.saveRecomm(recommendation11);
+        Recommendation recommendation12 = Recommendation.builder()
+                .rating(5)
+                .comment("Baby Yoda for President! Again!!!")
+                .videoId(vieo1Id)
+                .build();
+        recommCaller.saveRecomm(recommendation12);
+        Recommendation recommendation13 = Recommendation.builder()
+                .rating(3)
+                .comment("Nice music for coding.")
+                .videoId(vieo1Id)
+                .build();
+        recommCaller.saveRecomm(recommendation13);
 
         Video video2 = Video.builder()
                 .name("One Step Forward by Kitti")
                 .url("https://www.youtube.com/embed/uKthisLCFD4")
                 .build();
-        videoRepository.save(video2);
-        final Long vieo2Id = videoRepository.getByName("One Step Forward by Kitti").getId();
+        final Long vieo2Id = videoRepository.save(video2).getId();
         Recommendation recommendation21 = Recommendation.builder()
                 .rating(5)
                 .comment("Best song ever! <3")
@@ -50,19 +67,46 @@ public class DataInitializer implements CommandLineRunner {
                 .name("Quck Sort - legényes")
                 .url("https://www.youtube.com/embed/ywWBy6J5gz8")
                 .build();
-        videoRepository.save(video3);
+        final Long vieo3Id = videoRepository.save(video3).getId();
+        Recommendation recommendation31 = Recommendation.builder()
+                .rating(3)
+                .comment("Great visualization, although a bit slow for understanding the algorithm.")
+                .videoId(vieo3Id)
+                .build();
+        recommCaller.saveRecomm(recommendation31);
+
+
 
         Video video4 = Video.builder()
                 .name("!!Con 2019- Tail Call Optimization: The Musical!! by Anjana Vakil & Natalia Margolis")
                 .url("https://www.youtube.com/embed/-PX0BV9hGZY")
                 .build();
-        videoRepository.save(video4);
+        final Long vieo4Id = videoRepository.save(video4).getId();
+        Recommendation recommendation41 = Recommendation.builder()
+                .rating(4)
+                .comment("Second best tutorial video ever! <3 <3 <3")
+                .videoId(vieo4Id)
+                .build();
+        recommCaller.saveRecomm(recommendation41);
 
         Video video5 = Video.builder()
                 .name("Microservices #2")
-                .url("https://www.youtube.com/watch?v=APQgg7gDrfg&t=53s")
+                .url("https://www.youtube.com/embed/APQgg7gDrfg")
                 .build();
-        videoRepository.save(video5);
+        final Long vieo5Id = videoRepository.save(video5).getId();
+        Recommendation recommendation51 = Recommendation.builder()
+                .rating(5)
+                .comment("Best tutorial video ever!")
+                .videoId(vieo5Id)
+                .build();
+        recommCaller.saveRecomm(recommendation51);
+        Recommendation recommendation52 = Recommendation.builder()
+                .rating(5)
+                .comment("Watched these all week.")
+                .videoId(vieo5Id)
+                .build();
+        recommCaller.saveRecomm(recommendation52);
+
 
     }
 }
