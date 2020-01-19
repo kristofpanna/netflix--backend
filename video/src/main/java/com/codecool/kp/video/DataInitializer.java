@@ -23,13 +23,13 @@ public class DataInitializer implements CommandLineRunner {
     public void run(String... args) throws Exception {
         Video video1 = Video.builder()
                 .name("The Mandalorian soundtrack")
-                .url("https://www.youtube.com/watch?v=V7yqW64Dx7c")
+                .url("https://www.youtube.com/embed/V7yqW64Dx7c")
                 .build();
         videoRepository.save(video1);
 
         Video video2 = Video.builder()
                 .name("One Step Forward by Kitti")
-                .url("https://www.youtube.com/watch?v=uKthisLCFD4")
+                .url("https://www.youtube.com/embed/uKthisLCFD4")
                 .build();
         videoRepository.save(video2);
         final Long vieo2Id = videoRepository.getByName("One Step Forward by Kitti").getId();
@@ -48,13 +48,13 @@ public class DataInitializer implements CommandLineRunner {
 
         Video video3 = Video.builder()
                 .name("Quck Sort - legényes")
-                .url("https://www.youtube.com/watch?v=ywWBy6J5gz8")
+                .url("https://www.youtube.com/embed/ywWBy6J5gz8")
                 .build();
         videoRepository.save(video3);
 
         Video video4 = Video.builder()
                 .name("!!Con 2019- Tail Call Optimization: The Musical!! by Anjana Vakil & Natalia Margolis")
-                .url("https://www.youtube.com/watch?v=-PX0BV9hGZY")
+                .url("https://www.youtube.com/embed/-PX0BV9hGZY")
                 .build();
         videoRepository.save(video4);
 
